@@ -19,9 +19,9 @@ class ModelInfo:
         #self.data_dir = './data/'
         #self.data_folder = './data/'
 
-        self.image_size = 456
+        self.image_size = 256
         self.enet_type = 'tf_efficientnet_b3_ns' #tf_efficientnet_b3_ns
-        self.batch_size = 4
+        self.batch_size = 16
         self.num_workers = 0
         self.out_dim = 2
         self.use_amp = True
