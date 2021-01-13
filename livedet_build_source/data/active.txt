@@ -3,7 +3,7 @@ source livebet_env37/Scripts/activate
 
 # predict.py 실행
 ## dermalog
-python predict.py 1 C:/Users/aacl/Desktop/livedet_build/data/dermalog_test.txt C:/Users/aacl/Desktop/livedet_build/output/dermalog_result.txt
+python predict.py 1 C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/dermalog_test.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/output/dermalog_result.txt
 
 ## greenbit
 python predict.py 1 C:/Users/aacl/Desktop/livedet_build/data/greenbit_test.txt C:/Users/aacl/Desktop/livedet_build/output/greenbit_result.txt
