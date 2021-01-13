@@ -54,10 +54,7 @@ def main():
     print(df_template)
     print(df_probe)
 
-<<<<<<< HEAD
     #HUN : I Skipped 'if args.DEBUG:'
-=======
->>>>>>> IMSoutput_hyeon
 
     #Get Dataset
     dataset_fp = MMC_FPDataset(df_template, df_probe, transforms_template, transforms_probe)
@@ -93,7 +90,6 @@ def main():
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     #IMPORTANT : Get ModelInfo HERE!!!!!!
     args = Arguments(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
 
@@ -124,7 +120,6 @@ if __name__ == '__main__':
     print('==== args.dict ====')
     print(args.__dict__)
 
-=======
     ''' Imsoutput demo
     live_df = pd.DataFrame([0.02523,0.322,0.61,0.9999]) # fake fake live live
     matcher_df = pd.DataFrame([0.2,2.3,0.2,1.3]) # correct wrong correct wrong
@@ -143,7 +138,6 @@ if __name__ == '__main__':
     sys.exit(1)
     '''
     
->>>>>>> IMSoutput_hyeon
     main()
 
     
