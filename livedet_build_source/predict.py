@@ -98,6 +98,13 @@ def main():
     test_loader = torch.utils.data.DataLoader(dataset_test, batch_size=args.batch_size, num_workers=args.num_workers, shuffle=False)
 
 
+    ############
+    
+    # from livedet_func.py 
+
+    ############
+
+
     PROBS = []
     folds = range(args.k_fold) # fold 개수만큼 반복
     df_avg = pd.DataFrame() # for ensemble df
