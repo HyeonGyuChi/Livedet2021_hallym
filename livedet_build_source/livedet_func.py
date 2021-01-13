@@ -112,7 +112,8 @@ def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, 
         #I think it is better, get model mode as func parameter
         # model mode check  1 = (Dermalog) 3 = (Greenbit) 
         if model_mode == '1' :
-            model_file = os.path.join(model_dir, f'Dermalog_best_fold{fold}.pth')
+            # model_file = os.path.join(model_dir, f'Dermalog_best_fold{fold}.pth')
+            model_file = os.path.join(model_dir, f'Greenbit_tl_{fold}.pth')
         elif model_mode == '3' :
             model_file = os.path.join(model_dir, f'Greenbit_tl_{fold}.pth')
 
@@ -177,7 +178,7 @@ def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, 
         ### Ensemble ###
         df_result[str(fold)] = SCORE
 
-    df_avg = df_result.sum(axis=1)/args_k_fold
+    df_avg = df_result.sum(axis=1)/fold
     
     print(type(df_avg))
 
