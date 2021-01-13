@@ -74,6 +74,8 @@ def get_fp_livenessScore(test_loader, model_mode, model_dir='weights', fold=10, 
 
     df_avg = df_result.sum(axis=1) / fold # 결과확률에 대한 avg ensemble
 
+    df_avg = df_avg.apply(lambda x : round(x * 100)).astype(int) # 100 곱해 반올림(score 처리)
+
     return df_avg
 
 
@@ -184,7 +186,39 @@ def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, 
 
     return df_avg
 
+def get_fp_IMSoutputScore(liveness_score_df, matching_score_df) :
 
+    if len(liveness_score_df) != len(matching_score_df) : # 서로 길이가 같을 경우만 처리
+        print('===== Can not Calculate IMSoutput Score ==== ')
+        print(f'liveness df len : {len(liveness_score_df)}, matching df len : {len(matching_score_df)}')
+        sys.exit(0) # 비정상 종료
+
+    ims_score_df = pd.DataFrame()
+    livenss_thresh = 50 # liveness score thersh
+    matching_score_thresh = 1.0 # matching_score_thresh
+    
+    # check livness thresh
+    ## liveness == fake
+    ims_score_df = liveness_score_df[liveness_score_df < livenss_thresh] # fake
+    # print('===ims_score_df=== \n', ims_score_df)
+
+    # check matching_score thresh
+    ## liveness == live
+    live_idx = liveness_score_df >= livenss_thresh # live
+    live_matching_score_df = matching_score_df[live_idx]
+
+    ## matching score > 1.0 (wrong) -> 0
+    ims_score_df[live_matching_score_df > matching_score_thresh] = 0
+    
+    ## matching score <= 1.0 (correct) -> 100
+    ims_score_df[live_matching_score_df <= matching_score_thresh] = 100
+
+    ims_score_df = ims_score_df.astype(int)
+
+    return 0
+    
+    
+    
 
 
 
