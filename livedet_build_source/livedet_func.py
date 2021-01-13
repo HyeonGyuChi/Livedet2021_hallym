@@ -75,31 +75,31 @@ def calc_liveness_score(test_loader, model_mode, model_dir='weights', fold=10, d
 
 
 ### matcher score func
-def get_fp_matchingScore(test_loader):
+def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, device=torch.device('cpu')):
     ###############################Required parameters##########################
-    args_k_fold = 5
-    args_model_mode = '3'
-    args_model_dir = 'weights'
+    #args_k_fold = 5 -> def_param : fold
+    #args_model_mode = '3' -> def_param : model_mode
+    #args_model_dir = 'weights' -> def_param : model_dir
     args_enet_type = 'tf_efficientnet_b3_ns'
-    args_n_meta_dim = '512,128'
+    args_n_meta_dim = '512,128' #To be Del
     args_out_dim = 1000
-    args_n_test = 1
+    args_n_test = 1 #To be Del
 
-    n_meta_features = 0
+    n_meta_features = 0 #To be Del
     #n_meta_dim = [int(nd) for nd in args_n_meta_dim(',')]
-    target_idx = 0
+    target_idx = 0 #To be Del
 
-    if torch.cuda.is_available() :
-        print(' === USING CUDA === ')
-        device = torch.device('cuda')
-    else :
-        print('=== USING CPU ===')
-        device = torch.device('cpu')
+    # if torch.cuda.is_available() : #-> def_param : device
+    #     print(' === USING CUDA === ')
+    #     device = torch.device('cuda')
+    # else :
+    #     print('=== USING CPU ===')
+    #     device = torch.device('cpu')
     #############################################################################
     
 
     
-    folds = range(args_k_fold)  # For fold loop
+    folds = range(fold)  # For fold loop
     df_avg = pd.DataFrame()     # For ensemble
     df_result = pd.DataFrame()  # For collect result
 
@@ -108,10 +108,10 @@ def get_fp_matchingScore(test_loader):
         
         #I think it is better, get model mode as func parameter
         # model mode check  1 = (Dermalog) 3 = (Greenbit) 
-        if args_model_mode == '1' :
-            model_file = os.path.join(args_model_dir, f'Dermalog_best_fold{fold}.pth')
-        elif args_model_mode == '3' :
-            model_file = os.path.join(args_model_dir, f'Greenbit_tl_{fold}.pth')
+        if model_mode == '1' :
+            model_file = os.path.join(model_dir, f'Dermalog_best_fold{fold}.pth')
+        elif model_mode == '3' :
+            model_file = os.path.join(model_dir, f'Greenbit_tl_{fold}.pth')
 
         
         #Get model (ModelClass -> Effnet_MMC)
