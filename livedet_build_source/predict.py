@@ -41,6 +41,7 @@ def main():
     print(df_template)
     print(df_probe)
 
+
     #Get Dataset
     dataset_fp = MMC_FPDataset(df_template, df_probe, transforms_template, transforms_probe)
 
@@ -62,6 +63,24 @@ def main():
 
 
 if __name__ == '__main__':
+    ''' Imsoutput demo
+    live_df = pd.DataFrame([0.02523,0.322,0.61,0.9999]) # fake fake live live
+    matcher_df = pd.DataFrame([0.2,2.3,0.2,1.3]) # correct wrong correct wrong
+
+    live_df = live_df.apply(lambda x : (round(x * 100))).astype(int)
+    # live_df.apply(lambda x : round(x * 100))
+    # live_df[0].map(lambda x : round(x * 100))
+    print('===live_df=== \n', live_df)
+
+    print('===matcher_df=== \n', matcher_df)
+
+    # 3 32 100 0
+    ims_df = livedet_func.get_fp_IMSoutputScore(live_df, matcher_df) 
+    print('===ims_df=== \n', ims_df)
+    
+    sys.exit(1)
+    '''
+    
     main()
 
     
