@@ -115,9 +115,9 @@ def main():
 
         # model mode 체크  1 = (Dermalog) 3 = (Greenbit) 
         if args.model_mode == '1' :
-            model_file = os.path.join(args.model_dir, f'Greenbit_best_fold{fold}.pth')
-        elif args.model_mode == '3' :
             model_file = os.path.join(args.model_dir, f'Dermalog_best_fold{fold}.pth')
+        elif args.model_mode == '3' :
+            model_file = os.path.join(args.model_dir, f'GreenBit_best_fold{fold}.pth')
     
         ''' 기존 args.eval code freeze
         if args.eval == 'best':
