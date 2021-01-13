@@ -47,7 +47,12 @@ def main():
     #Get test_loader
     test_loader = torch.utils.data.DataLoader(dataset_fp, batch_size=4, num_workers=0, shuffle=False)
 
-    livedet_func.get_fp_matchingScore(test_loader)
+    #### liveness ####
+    liveness_score_df = livedet_func.get_fp_livenessScore(test_loader, model_mode=args.ndataset)
+    print(liveness_score_df)
+
+    ###### matcher #####
+    # livedet_func.get_fp_matchingScore(test_loader)
     
 
         

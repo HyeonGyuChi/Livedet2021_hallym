@@ -6,14 +6,15 @@ import torch # cuda check, torch pt load
 import sys
 
 from models import Effnet_MMC
-from dataset1 import get_df_stone, get_transforms, MMC_ClassificationDataset
+# from dataset1 import get_df_stone, get_transforms, MMC_ClassificationDataset
+# from dataset1 import get_df, get_transforms, MMC_FPDataset
 from utils.util import *
 from tqdm import tqdm
 import pandas as pd # <- for ensemble df
 
 ### liveness score func
 
-def calc_liveness_score(test_loader, model_mode, model_dir='weights', fold=10, device=torch.device('cpu')) :
+def get_fp_livenessScore(test_loader, model_mode, model_dir='weights', fold=10, device=torch.device('cpu')) :
     folds = range(fold) # fold 개수만큼 반복
     df_result = pd.DataFrame() # each folds output
     df_avg = pd.DataFrame() # ensemble avg_df
@@ -32,8 +33,8 @@ def calc_liveness_score(test_loader, model_mode, model_dir='weights', fold=10, d
         model = Effnet_MMC(
             enet_type='tf_efficientnet_b3_ns',
             out_dim=2,
-            n_meta_features=0,
-            n_meta_dim=[512, 128]
+            n_meta_features=0, # 어차피 사용하지 않음
+            n_meta_dim=[512, 128] # 어차피 사용하지 않음 
         )
 
         # model to cpu or gpu
@@ -52,12 +53,14 @@ def calc_liveness_score(test_loader, model_mode, model_dir='weights', fold=10, d
         model.eval()
 
         ############################ Predict ###########################################
-        PROBS = [] # total prob data
+        PROBS = [] # total prob data # each fold 초기화
         with torch.no_grad():
             for (data) in tqdm(test_loader):
-                data = data.to(device)
-                probs = torch.zeros((data.shape[0], 2)).to(device) # (fake, live) output 틀
-                l = model(data) # (fake, live) output value
+                _, probe_data = data # probe_data만 사용
+
+                probe_data = probe_data.to(device)
+                # probs = torch.zeros((data.shape[0], 2)).to(device) # (fake, live) output 틀
+                l = model(probe_data) # (fake, live) output value
                 probs = l.softmax(1) # softmax prob value, dim=1
             
                 PROBS.append(probs.detach().cpu()) # total prob data 
@@ -153,7 +156,7 @@ def get_fp_matchingScore(test_loader):
                 #matched_score = torch.zeros((data[0].shape[0])).to(device)
 
                 for I in range(args_n_test):# I think this line is useless(cause args_n_test == 1)
-                    pdist = nn.PairwiseDistance(p=2)
+                    pdist = torch.nn.PairwiseDistance(p=2)
                     input1 = model(template_data)# Is it right?
                     input2 = model(probe_data)
                     output = pdist(input1, input2)
