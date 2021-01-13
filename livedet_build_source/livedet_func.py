@@ -215,7 +215,7 @@ def get_fp_IMSoutputScore(liveness_score_df, matching_score_df) :
 
     ims_score_df = ims_score_df.astype(int)
 
-    return 0
+    return ims_score_df
     
     
     

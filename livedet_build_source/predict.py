@@ -62,29 +62,29 @@ def main():
     #Get test_loader
     test_loader = torch.utils.data.DataLoader(dataset_fp, batch_size=4, num_workers=0, shuffle=False)
 
-    #### liveness ####
+    #### liveness #### ==> series
     liveness_score_df = livedet_func.get_fp_livenessScore(test_loader, model_mode=args.ndataset, fold=10, device=device)
-    print(liveness_score_df)
-    print(type(liveness_score_df))
 
-    ###### matcher #####
+    ###### matcher ##### ==> series
     #Get Maching score dataframe
     matching_score_df = livedet_func.get_fp_matchingScore(test_loader, model_mode=args.ndataset, fold=5, device=device)
     print(matching_score_df)
     print(type(matching_score_df))
 
-    #Plz add here, livedet_func.get_fp_integratedScore()
+    ##### ims score ##### ==> dataframe
+    ims_score_df = livedet_func.get_fp_IMSoutputScore(liveness_score_df.to_frame(), matching_score_df.to_frame())
 
-    #Write livenessoutputfile on file(.txt)
+
+    # Write livenessoutputfile on file(.txt)
     change_txt = open(args.livenessoutputfile,'w')
-    for i in liveness_score_df:
-        change_txt.write(str(int(float(i) * 100)) + '\n')
+    for i in liveness_score_df: # series to .txt
+        change_txt.write(str(i) + '\n')
     change_txt.close()
 
     #Write IMSoutputfile on file(.txt)
     change_txt = open(args.IMSoutputfile,'w')
-    for i in matching_score_df:
-        change_txt.write(str(float(i)) + '\n')
+    for i in ims_score_df.loc[:, 0]: # series to .txt
+        change_txt.write(str(i) + '\n')
     change_txt.close()
 
 
