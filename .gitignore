@@ -1,0 +1,5 @@
+## livedet_build_source ignore file ##
+/livedet_build_source/weights/*.pth
+
+## python cache ignore file ##
+__pycache__

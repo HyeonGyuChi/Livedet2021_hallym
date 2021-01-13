@@ -1,0 +1,14 @@
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\LEFT_INDEX_1.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\Dermalog_1_24_0_Fake_LEFT_INDEX_1.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\Dermalog_1_24_0_Fake_LEFT_INDEX_2.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\Dermalog_1_24_0_Fake_LEFT_INDEX_3.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\Dermalog_1_24_0_Fake_LEFT_INDEX_4.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\Dermalog_1_24_0_Fake_LEFT_INDEX_5.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\Dermalog_1_24_0_Fake_LEFT_INDEX_6.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\Dermalog_1_24_0_Fake_LEFT_LITTLE_1.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\Dermalog_1_24_0_Fake_LEFT_LITTLE_2.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\LEFT_INDEX_2-018-LEFT_INDEX_2-0.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\LEFT_INDEX_4-030-LEFT_INDEX_4-0.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\LEFT_MIDDLE_4-010-LEFT_MIDDLE_4-1.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\RIGHT_LITTLE_5-032-RIGHT_LITTLE_5-1.png
+C:\Users\aacl\Desktop\livedet_build\data\testset_dermalog\RIGHT_THUMB_5-024-RIGHT_THUMB_5-1.png
