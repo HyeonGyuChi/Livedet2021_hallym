@@ -22,12 +22,12 @@ def get_fp_livenessScore(test_loader, model_mode, model_dir='weights', fold=10, 
     #Loop 10 fold
     for fold_idx in folds:
 
-        # model mode 체크  1 = (Dermalog) 3 = (Greenbit) 
+        # model mode 체크  1 = (Greenbit) 3 = (Dermalog) 
         # get model file (.pth) 
         if model_mode == '1' :
-            model_file = os.path.join(model_dir, f'Dermalog_best_fold{fold_idx}.pth')
+            model_file = os.path.join(model_dir, f'Greenbit_best_fold{fold_idx}.pth')
         elif model_mode == '3' :
-            model_file = os.path.join(model_dir, f'GreenBit_best_fold{fold_idx}.pth')
+            model_file = os.path.join(model_dir, f'Dermalog_best_fold{fold_idx}.pth')
 
         # Get model -> hard coding
         model = Effnet_MMC(
@@ -112,12 +112,12 @@ def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, 
     for fold in folds:
         
         #I think it is better, get model mode as func parameter
-        # model mode check  1 = (Dermalog) 3 = (Greenbit) 
+        # model mode check  1 = (Greenbit) 3 = (Dermalog) 
         if model_mode == '1' :
             # model_file = os.path.join(model_dir, f'Dermalog_best_fold{fold}.pth')
             model_file = os.path.join(model_dir, f'Greenbit_tl_{fold}.pth')
         elif model_mode == '3' :
-            model_file = os.path.join(model_dir, f'Greenbit_tl_{fold}.pth')
+            model_file = os.path.join(model_dir, f'Dermalog_tl_{fold}.pth')
 
         
         #Get model (ModelClass -> Effnet_MMC)
@@ -186,7 +186,7 @@ def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, 
 
     return df_avg
 
-def get_fp_IMSoutputScore(liveness_score_df, matching_score_df) :
+def get_fp_IMSoutputScore(liveness_score_df, matching_score_df) : # para (sereise, seriser)
 
     if len(liveness_score_df) != len(matching_score_df) : # 서로 길이가 같을 경우만 처리
         print('===== Can not Calculate IMSoutput Score ==== ')
@@ -213,9 +213,10 @@ def get_fp_IMSoutputScore(liveness_score_df, matching_score_df) :
     ## matching score <= 1.0 (correct) -> 100
     ims_score_df[live_matching_score_df <= matching_score_thresh] = 100
 
+    # df
     ims_score_df = ims_score_df.astype(int)
 
-    return ims_score_df
+    return ims_score_df.loc[:, 0] # return serise
     
     
     

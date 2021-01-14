@@ -83,7 +83,7 @@ def main():
 
     #Write IMSoutputfile on file(.txt)
     change_txt = open(args.IMSoutputfile,'w')
-    for i in ims_score_df.loc[:, 0]: # series to .txt
+    for i in ims_score_df: # series to .txt
         change_txt.write(str(i) + '\n')
     change_txt.close()
 
