@@ -2,10 +2,10 @@
 import os
 
 block_cipher = None
-site_packages = 'C:\\Users\\aacl\\Desktop\\livedet_build\\livedet_rtx2080_env\\Lib\\site-packages'
+site_packages = 'C:\\Users\\lab\\Documents\\Github\\Livedet2021\\livedet_build_source\\livedet38_env\\Lib\\site-packages'
 
 a = Analysis(['predict.py'],
-             pathex=['C:\\Users\\aacl\\Desktop\\livedet_build', 'C:\\Users\\aacl\\Desktop\\livedet_build\\livedet_rtx2080_env\\Lib\\site-packages'],
+             pathex=['C:\\Users\\lab\\Documents\\Github\\Livedet2021\\livedet_build_source', 'C:\\Users\\lab\\Documents\\Github\\Livedet2021\\livedet_build_source\\livedet38_env\\Lib\\site-packages'],
              binaries=[],
              datas=[(os.path.join(site_packages, 'numpy'),'numpy'),
                     (os.path.join(site_packages, 'albumentations'),'albumentations'),

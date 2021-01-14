@@ -1,9 +1,13 @@
+# /livedet_build_score
 ## livedet_build_source ignore file ##
 /livedet_build_source/weights/*.pth
 
 ## python cache ignore file ##
 __pycache__
 
-
 ## python venv ignore file ##
 livedet38_env
+
+## python build file ##
+livedet_build_source/build
+livedet_build_source/dist
