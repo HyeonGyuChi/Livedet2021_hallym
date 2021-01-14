@@ -68,11 +68,17 @@ def main():
     ###### matcher ##### ==> series
     #Get Maching score dataframe
     matching_score_df = livedet_func.get_fp_matchingScore(test_loader, model_mode=args.ndataset, fold=5, device=device)
-    print(matching_score_df)
-    print(type(matching_score_df))
 
     ##### ims score ##### ==> dataframe
     ims_score_df = livedet_func.get_fp_IMSoutputScore(liveness_score_df.to_frame(), matching_score_df.to_frame())
+
+    print('==== live ====')
+    print(liveness_score_df)
+    print('==== matcher ====')
+    print(matching_score_df)
+    print('==== ims_score ====')
+    print(ims_score_df)
+    
 
 
     # Write livenessoutputfile on file(.txt)

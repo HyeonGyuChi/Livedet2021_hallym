@@ -70,7 +70,12 @@ def get_fp_livenessScore(test_loader, model_mode, model_dir='weights', fold=10, 
 
         ### Ensemble ###
 
-        df_result[str(fold_idx)] = PROBS[:, 0] # target_idx = 0 이므로 label이 0으로 부여된 확률만 가져옴
+        df_result[str(fold_idx)] = PROBS[:, 1] # target_idx = 0 이므로 label이 1으로 부여된 확률만 가져옴 (0 = fake, 1 = live)
+
+        print("=== PROBS ===")
+        print(PROBS)
+        print("=== df_result ===")
+        print(df_result)
 
     df_avg = df_result.sum(axis=1) / fold # 결과확률에 대한 avg ensemble
 

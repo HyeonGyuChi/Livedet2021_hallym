@@ -1,8 +1,8 @@
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\GreenBit_1_24_0_Fake_FLAT_INDEX_LEFT_2.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\GreenBit_1_24_0_Fake_FLAT_INDEX_LEFT_3.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\GreenBit_1_24_0_Fake_FLAT_INDEX_LEFT_1.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\GreenBit_1_24_0_Fake_FLAT_INDEX_LEFT_4.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\GreenBit_1_24_0_Fake_FLAT_INDEX_LEFT_5.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\GreenBit_1_24_0_Fake_FLAT_INDEX_LEFT_6.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\GreenBit_1_24_0_Fake_FLAT_INDEX_RIGHT_1.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\GreenBit_1_24_0_Fake_FLAT_INDEX_RIGHT_2.png
+C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\Dermalog_4_23_0_Live_LEFT_INDEX_1.png
+C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\Dermalog_4_23_0_Live_LEFT_INDEX_2.png
+C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\Dermalog_4_23_0_Live_LEFT_INDEX_3.png
+C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\Dermalog_4_23_0_Live_LEFT_INDEX_4.png
+C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\Dermalog_4_23_0_Live_LEFT_LITTLE_1.png
+C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\Dermalog_4_23_0_Live_LEFT_LITTLE_2.png
+C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\Dermalog_4_23_0_Live_LEFT_LITTLE_3.png
+C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\template_data\Dermalog_4_23_0_Live_LEFT_LITTLE_4.png
