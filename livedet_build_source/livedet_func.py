@@ -30,7 +30,7 @@ def get_fp_livenessScore(test_loader, model_mode, model_dir='weights', fold=10, 
             model_file = os.path.join(model_dir, f'Dermalog_best_fold{fold_idx}.pth')
 
         # Get model -> hard coding
-        model = Effnet_MMC(
+        model = Effnet_MMC_liveness(
             enet_type='tf_efficientnet_b3_ns',
             out_dim=2,
             n_meta_features=0, # 어차피 사용하지 않음
@@ -92,7 +92,7 @@ def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, 
     #args_model_dir = 'weights' -> def_param : model_dir
     args_enet_type = 'tf_efficientnet_b3_ns'
     args_n_meta_dim = '512,128' #To be Del
-    args_out_dim = 1000
+    args_out_dim = 1536
     args_n_test = 1 #To be Del
 
     n_meta_features = 0 #To be Del
@@ -126,7 +126,7 @@ def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, 
 
         
         #Get model (ModelClass -> Effnet_MMC)
-        model = Effnet_MMC(
+        model = Effnet_MMC_matcher(
             args_enet_type,
             n_meta_features=n_meta_features,
             out_dim = args_out_dim

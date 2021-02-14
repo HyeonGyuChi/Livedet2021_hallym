@@ -24,8 +24,66 @@ class 내가만든네트워크(nn.Module):
     def forward(self, x, x_meta=None):
         # 최종 네트워크 결과 얻기 (fc_layer 포함)
 '''
+class Effnet_MMC_liveness(nn.Module):
+    def __init__(self, enet_type, out_dim, n_meta_features=0, n_meta_dim=[512, 128], pretrained=False):
+        super(Effnet_MMC, self).__init__()
+        self.n_meta_features = n_meta_features
+        # efficient net 모델
+        self.enet = geffnet.create_model(enet_type, pretrained=pretrained)
+        self.dropouts = nn.ModuleList([
+            nn.Dropout(0.5) for _ in range(5)
+        ])
+        in_ch = self.enet.classifier.in_features
+        if n_meta_features > 0:
+            # meta 데이터를 사용한 경우, 짤막한 2레이어 분류기 추가
+            self.meta = nn.Sequential(
+                nn.Linear(n_meta_features, n_meta_dim[0]),
+                nn.BatchNorm1d(n_meta_dim[0]),
+                # swish activation function
+                Swish_Module(),
+                nn.Dropout(p=0.3),
+                nn.Linear(n_meta_dim[0], n_meta_dim[1]),
+                nn.BatchNorm1d(n_meta_dim[1]),
+                Swish_Module(),
+            )
+            in_ch += n_meta_dim[1]
+        
+        self.myfc = nn.Sequential(
+            nn.Linear(in_ch, n_meta_dim[0]),
+            nn.BatchNorm1d(n_meta_dim[0]),
+            # swish activation function
+            Swish_Module(),
+            nn.Dropout(p=0.3),
+            nn.Linear(n_meta_dim[0], n_meta_dim[1]),
+            nn.BatchNorm1d(n_meta_dim[1]),
+            Swish_Module(),
+            nn.Linear(n_meta_dim[1], out_dim),
+        )
 
-class Effnet_MMC(nn.Module):
+        self.enet.classifier = nn.Identity()
+
+    def extract(self, x):
+        x = self.enet(x)
+        return x
+
+    def forward(self, x, x_meta=None):
+        x = self.extract(x).squeeze(-1).squeeze(-1)
+        if self.n_meta_features > 0:
+            # meta 데이터를 사용한 경우,
+            # 추가 레이어 결과를 뽑은뒤 합친다
+            x_meta = self.meta(x_meta)
+            x = torch.cat((x, x_meta), dim=1)
+        for i, dropout in enumerate(self.dropouts):
+            if i == 0:
+                out = self.myfc(dropout(x))
+            else:
+                out += self.myfc(dropout(x))
+        out /= len(self.dropouts)
+        return out
+
+
+
+class Effnet_MMC_matcher(nn.Module):
     def __init__(self, enet_type, out_dim, n_meta_features=0, n_meta_dim=[512, 128], pretrained=False):
         super(Effnet_MMC, self).__init__()
         self.n_meta_features = n_meta_features
@@ -63,8 +121,6 @@ class Effnet_MMC(nn.Module):
         #     Swish_Module(),
         #     nn.Linear(n_meta_dim[1], out_dim),
         # )
-
-
 
         self.enet.classifier = nn.Identity()
 
