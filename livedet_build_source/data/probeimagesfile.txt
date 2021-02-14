@@ -1,8 +1,0 @@
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\probe_data\Dermalog_4_23_0_Live_LEFT_INDEX_5.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\probe_data\Dermalog_4_23_0_Live_LEFT_INDEX_2.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\probe_data\Dermalog_4_23_0_Live_LEFT_INDEX_3.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\probe_data\Dermalog_4_23_0_Live_LEFT_INDEX_4.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\probe_data\Dermalog_4_23_0_Live_LEFT_LITTLE_1.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\probe_data\Dermalog_4_23_0_Live_LEFT_LITTLE_2.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\probe_data\Dermalog_4_23_0_Live_LEFT_LITTLE_3.png
-C:\Users\lab\Documents\Github\Livedet2021\livedet_build_source\data\probe_data\Dermalog_4_23_0_Live_LEFT_LITTLE_4.png

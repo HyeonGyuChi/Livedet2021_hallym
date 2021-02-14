@@ -48,17 +48,21 @@ class Effnet_MMC(nn.Module):
                 Swish_Module(),
             )
             in_ch += n_meta_dim[1]
-        self.myfc = nn.Sequential(
-            nn.Linear(in_ch, n_meta_dim[0]),
-            nn.BatchNorm1d(n_meta_dim[0]),
-            # swish activation function
-            Swish_Module(),
-            nn.Dropout(p=0.3),
-            nn.Linear(n_meta_dim[0], n_meta_dim[1]),
-            nn.BatchNorm1d(n_meta_dim[1]),
-            Swish_Module(),
-            nn.Linear(n_meta_dim[1], out_dim),
-        )
+        
+        #### backborn -> fc layer 
+        self.myfc = nn.Linear(in_ch, out_dim)
+        
+        # self.myfc = nn.Sequential(
+        #     nn.Linear(in_ch, n_meta_dim[0]),
+        #     nn.BatchNorm1d(n_meta_dim[0]),
+        #     # swish activation function
+        #     Swish_Module(),
+        #     nn.Dropout(p=0.3),
+        #     nn.Linear(n_meta_dim[0], n_meta_dim[1]),
+        #     nn.BatchNorm1d(n_meta_dim[1]),
+        #     Swish_Module(),
+        #     nn.Linear(n_meta_dim[1], out_dim),
+        # )
 
 
 
