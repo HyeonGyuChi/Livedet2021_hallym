@@ -9,12 +9,12 @@ python predict.py 1 C:/Users/lab/Documents/Github/Livedet2021/livedet_build_sour
 python predict.py 3 C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/templateimagesfile.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/probeimagesfile.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/liveout.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/imsout.txt
 
 
-# predict.exe 실행
+# hallymMMC.exe 실행
 ## greenbit
-predict.exe 1 C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/templateimagesfile.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/probeimagesfile.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/liveout.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/imsout.txt
+hallymMMC.exe 1 C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/templateimagesfile_0214.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/probeimagesfile_0214.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/liveout.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/imsout.txt
 
 ## greenbit
-predict.exe 3 C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/templateimagesfile.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/probeimagesfile.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/liveout.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/imsout.txt
+hallymMMC.exe 3 C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/templateimagesfile.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/probeimagesfile.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/liveout.txt C:/Users/lab/Documents/Github/Livedet2021/livedet_build_source/data/imsout.txt
 
 # pyinstaller
 pyinstaller --onefile --clean predict.spec

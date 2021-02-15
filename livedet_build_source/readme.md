@@ -65,9 +65,7 @@ pyinstaller --onefile --clean predict.spec
 **<U> PLEASE DON'T REMOVE WEIGHTS FOLDER, JUST KEEP THIS RELATIVE PATH </U>**
 ```shell
 root:.
-│  nvcc.txt
 │  hallymMMC.exe
-│  requirements.txt
 │
 └─weights
         ....pth
