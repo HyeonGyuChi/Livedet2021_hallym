@@ -1,7 +1,5 @@
 # LIVEDET 2021 Competition
-##  ==== THIS IS NOT FINAL SUBMISSION ====
-PLEASE CHECK THIS FILE CAN EXECUTE RIGHTLY ON YOUR SYSTEM
-=====
+##  ==== THIS IS FINAL SUBMISSION ====
 > This Executable file is for FingerPirnt Liveness Detection Model in Livedet 2021 : Challenge 1
 
 ## Hallym_MMC demo v1.0
@@ -13,12 +11,21 @@ PLEASE CHECK THIS FILE CAN EXECUTE RIGHTLY ON YOUR SYSTEM
 - Change Submission form [Satisfy Livedet 2021 Challenge 1 Submission](https://livdet.diee.unica.it/index.php/home/algorithm-specifications)
 - [nameOfAlgorithm].exe [ndataset] [templateimagesfile] [probeimagesfile] [livenessoutputfile] [IMSoutputfile]
 
+## Hallym_MMC demo v2.1
+- Select final best weights for Dermalog and Greenbit
+- Select fianl matcher thresh to 1.1
 
 
 ### Team
-|Name|Deparment|Roll|
+|Name|Deparment|
 |------|---|---|
-|Jong-Uk How  | Hallym prof. | Team Leader
+|Jong-Uk How  | Hallym univ prof.
+|Yoo-Seung Shin  | Hallym univ Student
+|Bo-Seok Shim  | Hallym univ Student
+|Ye-Rin Ahn  | Hallym univ Student
+|Sang-Young Lee  | Hallym univ Student
+|Hyeon-Gyu Chi  | Hallym univ Student
+|Sung-hun Yun  | Hallym univ Student
 
 
 ### Build enviroment
@@ -53,13 +60,13 @@ pyinstaller --onefile --clean predict.spec
 8. Relocating .exe file to execute as follows #Structure, #How to execute
 
 ------
-## Execute Build File v2.0
+## Execute Build File v2.1
 ### Structure
 **<U> PLEASE DON'T REMOVE WEIGHTS FOLDER, JUST KEEP THIS RELATIVE PATH </U>**
 ```shell
 root:.
 │  nvcc.txt
-│  predict.exe
+│  hallymMMC.exe
 │  requirements.txt
 │
 └─weights
@@ -68,7 +75,7 @@ root:.
 
 ### How to execute
 ```shell 
-$ predict.exe [ndataset] [templateimagesfile] [probeimagesfile] [livenessoutputfile] [IMSoutputfile]
+$ hallymMMC.exe [ndataset] [templateimagesfile] [probeimagesfile] [livenessoutputfile] [IMSoutputfile]
 ```
 - ndataset : [1, 3]
     - 1 : Greenbit
