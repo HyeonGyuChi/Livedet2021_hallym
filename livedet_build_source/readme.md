@@ -13,19 +13,19 @@
 
 ## Hallym_MMC demo v2.1
 - Select final best weights for Dermalog and Greenbit
-- Select fianl matcher thresh to 1.1
+- Select final matcher thresh to 1.1
 
 
 ### Team
 |Name|Deparment|
-|------|---|---|
-|Jong-Uk How  | Hallym univ prof.
-|Yoo-Seung Shin  | Hallym univ Student
-|Bo-Seok Shim  | Hallym univ Student
-|Ye-Rin Ahn  | Hallym univ Student
-|Sang-Young Lee  | Hallym univ Student
-|Hyeon-Gyu Chi  | Hallym univ Student
-|Sung-hun Yun  | Hallym univ Student
+|------|---|
+|Jong-Uk How  | Hallym univ prof. |
+|Yoo-Seung Shin  | Hallym univ Student |
+|Bo-Seok Shim  | Hallym univ Student |
+|Ye-Rin Ahn  | Hallym univ Student | 
+|Sang-Young Lee  | Hallym univ Student |
+|Hyeon-Gyu Chi  | Hallym univ Student |
+|Sung-hun Yun  | Hallym univ Student |
 
 
 ### Build enviroment
