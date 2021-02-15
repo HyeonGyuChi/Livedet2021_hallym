@@ -1,6 +1,7 @@
 # /livedet_build_score
 ## livedet_build_source ignore file ##
 /livedet_build_source/weights/*.pth
+/livedet_build_source/data/livdet2021train/*
 
 ## python cache ignore file ##
 __pycache__

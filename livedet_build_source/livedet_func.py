@@ -5,7 +5,7 @@ import torch # cuda check, torch pt load
 
 import sys
 
-from models import Effnet_MMC
+from models import Effnet_MMC_liveness, Effnet_MMC_matcher
 # from dataset1 import get_df_stone, get_transforms, MMC_ClassificationDataset
 # from dataset1 import get_df, get_transforms, MMC_FPDataset
 from utils.util import *
@@ -71,11 +71,6 @@ def get_fp_livenessScore(test_loader, model_mode, model_dir='weights', fold=10, 
         ### Ensemble ###
 
         df_result[str(fold_idx)] = PROBS[:, 1] # target_idx = 0 이므로 label이 1으로 부여된 확률만 가져옴 (0 = fake, 1 = live)
-
-        print("=== PROBS ===")
-        print(PROBS)
-        print("=== df_result ===")
-        print(df_result)
 
     df_avg = df_result.sum(axis=1) / fold # 결과확률에 대한 avg ensemble
 
@@ -186,8 +181,6 @@ def get_fp_matchingScore(test_loader, model_mode, model_dir='weights', fold=10, 
         df_result[str(fold)] = SCORE
 
     df_avg = df_result.sum(axis=1)/fold
-    
-    print(type(df_avg))
 
     return df_avg
 
@@ -200,7 +193,7 @@ def get_fp_IMSoutputScore(liveness_score_df, matching_score_df) : # para (sereis
 
     ims_score_df = pd.DataFrame()
     livenss_thresh = 50 # liveness score thersh
-    matching_score_thresh = 1.0 # matching_score_thresh
+    matching_score_thresh = 1.1 # matching_score_thresh
     
     # check livness thresh
     ## liveness == fake

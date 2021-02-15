@@ -51,9 +51,6 @@ def main():
     #Get Albumentaion transforms template & probe (imagesize : 256)
     transforms_template, transforms_probe = get_transforms(256)
 
-    print(df_template)
-    print(df_probe)
-
     #HUN : I Skipped 'if args.DEBUG:'
 
     #Get Dataset
@@ -71,13 +68,6 @@ def main():
 
     ##### ims score ##### ==> dataframe
     ims_score_df = livedet_func.get_fp_IMSoutputScore(liveness_score_df.to_frame(), matching_score_df.to_frame())
-
-    print('==== live ====')
-    print(liveness_score_df)
-    print('==== matcher ====')
-    print(matching_score_df)
-    print('==== ims_score ====')
-    print(ims_score_df)
     
 
 
@@ -121,10 +111,6 @@ if __name__ == '__main__':
         sys.exit(1)
 
     #HUN : I Skipped processing 'args.enent_type'
-
-    #Print log for ModelInfo
-    print('==== args.dict ====')
-    print(args.__dict__)
 
     ''' Imsoutput demo
     live_df = pd.DataFrame([0.02523,0.322,0.61,0.9999]) # fake fake live live

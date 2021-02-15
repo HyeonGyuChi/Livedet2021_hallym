@@ -26,7 +26,7 @@ class 내가만든네트워크(nn.Module):
 '''
 class Effnet_MMC_liveness(nn.Module):
     def __init__(self, enet_type, out_dim, n_meta_features=0, n_meta_dim=[512, 128], pretrained=False):
-        super(Effnet_MMC, self).__init__()
+        super(Effnet_MMC_liveness, self).__init__()
         self.n_meta_features = n_meta_features
         # efficient net 모델
         self.enet = geffnet.create_model(enet_type, pretrained=pretrained)
@@ -85,7 +85,7 @@ class Effnet_MMC_liveness(nn.Module):
 
 class Effnet_MMC_matcher(nn.Module):
     def __init__(self, enet_type, out_dim, n_meta_features=0, n_meta_dim=[512, 128], pretrained=False):
-        super(Effnet_MMC, self).__init__()
+        super(Effnet_MMC_matcher, self).__init__()
         self.n_meta_features = n_meta_features
         # efficient net 모델
         self.enet = geffnet.create_model(enet_type, pretrained=pretrained)

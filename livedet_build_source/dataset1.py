@@ -12,7 +12,6 @@ import matplotlib.pylab as plt
 
 def get_df(source_path):
 
-    print(source_path)
     df_test = pd.read_csv(source_path, delimiter='\n', names=['filepath'])
 
     target_idx = 0
